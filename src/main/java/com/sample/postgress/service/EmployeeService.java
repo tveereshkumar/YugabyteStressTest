@@ -1,8 +1,8 @@
 package com.sample.postgress.service;
 
-import java.util.List;
-
 import com.sample.postgress.entity.Employee;
+
+import java.util.List;
 
 public interface EmployeeService {
 	List<Employee> findAll();

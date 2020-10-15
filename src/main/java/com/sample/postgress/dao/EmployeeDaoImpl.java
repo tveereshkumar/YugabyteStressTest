@@ -1,11 +1,8 @@
 package com.sample.postgress.dao;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.sample.postgress.entity.Employee;
+import com.sample.postgress.mapper.EmployeeRowMapper;
+import com.sample.postgress.util.MockData;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -15,8 +12,11 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import com.sample.postgress.entity.Employee;
-import com.sample.postgress.mapper.EmployeeRowMapper;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 @Repository
 public class EmployeeDaoImpl implements EmployeeDao{
 	
@@ -32,7 +32,10 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	@Override
 	public void insertEmployee(Employee emp) {
 		 final String sql = "insert into employee(employeeId, employeeName , employeeAddress,employeeEmail) values(:employeeId,:employeeName,:employeeEmail,:employeeAddress)";
-		 
+
+		 if (emp == null)
+		 	emp = MockData.getMockEmployee();
+
 	        KeyHolder holder = new GeneratedKeyHolder();
 	        SqlParameterSource param = new MapSqlParameterSource()
 					.addValue("employeeId", emp.getEmployeeId())
@@ -46,6 +49,9 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	@Override
 	public void updateEmployee(Employee emp) {
 		 final String sql = "update employee set employeeName=:employeeName, employeeAddress=:employeeAddress, employeeEmail=:employeeEmail where employeeId=:employeeId";
+
+		if (emp == null)
+			emp = MockData.getMockEmployee();
 		 
 	        KeyHolder holder = new GeneratedKeyHolder();
 	        SqlParameterSource param = new MapSqlParameterSource()
@@ -60,7 +66,9 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	@Override
 	public void executeUpdateEmployee(Employee emp) {
 		 final String sql = "update employee set employeeName=:employeeName, employeeAddress=:employeeAddress, employeeEmail=:employeeEmail where employeeId=:employeeId";
-			 
+
+		if (emp == null)
+			emp = MockData.getMockEmployee();
 
 		 Map<String,Object> map=new HashMap<String,Object>();  
 		 map.put("employeeId", emp.getEmployeeId());
@@ -82,7 +90,9 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	@Override
 	public void deleteEmployee(Employee emp) {
 		 final String sql = "delete from employee where employeeId=:employeeId";
-			 
+
+		if (emp == null)
+			emp = MockData.getMockEmployee();
 
 		 Map<String,Object> map=new HashMap<String,Object>();  
 		 map.put("employeeId", emp.getEmployeeId());
@@ -95,7 +105,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 			    }  
 			});  
 
-	 
+
 	}
 	
 }

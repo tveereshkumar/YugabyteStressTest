@@ -6,8 +6,20 @@ public class Employee {
 	String employeeName;
 	String employeeEmail;
 	String employeeAddress;
-	
-	
+	EmployeeSkill employeeSkill;
+
+	public Employee() {
+
+	}
+
+	public Employee(String employeeId, String employeeName,
+					String employeeEmail, String employeeAddress) {
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.employeeEmail = employeeEmail;
+		this.employeeAddress = employeeAddress;
+	}
+
 	public String getEmployeeEmail() {
 		return employeeEmail;
 	}
@@ -32,6 +44,12 @@ public class Employee {
 	public void setEmployeeAddress(String employeeAddress) {
 		this.employeeAddress = employeeAddress;
 	}
-	
-	
+
+	public EmployeeSkill getEmployeeSkills() {
+		return employeeSkill;
+	}
+
+	public void setEmployeeSkills(EmployeeSkill employeeSkill) {
+		this.employeeSkill = employeeSkill;
+	}
 }
