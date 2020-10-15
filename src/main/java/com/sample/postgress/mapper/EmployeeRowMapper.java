@@ -17,12 +17,12 @@ public class EmployeeRowMapper implements RowMapper<Employee> {
 		emp.setEmployeeEmail(rs.getString("employeeEmail"));
 		emp.setEmployeeAddress(rs.getString("employeeAddress"));
 
-		EmployeeSkill skills = new EmployeeSkill();
+		/*EmployeeSkill skills = new EmployeeSkill();
 		skills.setEmployeeId(rs.getString("employeeId"));
 		skills.setSkillName(rs.getString("skillName"));
 		skills.setExperience(rs.getInt("experience"));
 		skills.setDescription(rs.getString("description"));
-		emp.setEmployeeSkills(skills);
+		emp.setEmployeeSkills(skills);*/
         return emp;
 	}
 
