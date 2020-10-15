@@ -33,7 +33,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	public void insertEmployee(Employee emp) {
 		 final String sql = "insert into employee(employeeId, employeeName , employeeAddress,employeeEmail) values(:employeeId,:employeeName,:employeeEmail,:employeeAddress)";
 
-		 if (emp == null)
+		 if (emp == null || emp.getEmployeeId() == null)
 		 	emp = MockData.getMockEmployee();
 
 	        KeyHolder holder = new GeneratedKeyHolder();
@@ -50,7 +50,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	public void updateEmployee(Employee emp) {
 		 final String sql = "update employee set employeeName=:employeeName, employeeAddress=:employeeAddress, employeeEmail=:employeeEmail where employeeId=:employeeId";
 
-		if (emp == null)
+		if (emp == null || emp.getEmployeeId() == null)
 			emp = MockData.getMockEmployee();
 		 
 	        KeyHolder holder = new GeneratedKeyHolder();
@@ -67,7 +67,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	public void executeUpdateEmployee(Employee emp) {
 		 final String sql = "update employee set employeeName=:employeeName, employeeAddress=:employeeAddress, employeeEmail=:employeeEmail where employeeId=:employeeId";
 
-		if (emp == null)
+		if (emp == null || emp.getEmployeeId() == null)
 			emp = MockData.getMockEmployee();
 
 		 Map<String,Object> map=new HashMap<String,Object>();  
@@ -91,7 +91,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	public void deleteEmployee(Employee emp) {
 		 final String sql = "delete from employee where employeeId=:employeeId";
 
-		if (emp == null)
+		if (emp == null || emp.getEmployeeId() == null)
 			emp = MockData.getMockEmployee();
 
 		 Map<String,Object> map=new HashMap<String,Object>();  

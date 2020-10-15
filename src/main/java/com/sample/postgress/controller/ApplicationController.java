@@ -20,21 +20,25 @@ public class ApplicationController {
 	}
 	
 	@PostMapping(value = "/createEmp")
-	public void createEmployee(@RequestBody Employee emp) {
+	public String createEmployee(@RequestBody Employee emp) {
 		 employeeService.insertEmployee(emp);
+		 return "Successfully Inserted";
 	}
 	@PutMapping(value = "/updateEmp")
-	public void updateEmployee(@RequestBody Employee emp) {
+	public String updateEmployee(@RequestBody Employee emp) {
 		 employeeService.updateEmployee(emp);
+		return "Successfully Updated";
 	}
 	@PutMapping(value = "/executeUpdateEmp")
-	public void executeUpdateEmployee(@RequestBody Employee emp) {
+	public String executeUpdateEmployee(@RequestBody Employee emp) {
 		 employeeService.executeUpdateEmployee(emp);
+		return "Successfully Updated";
 	}
 	
 	@DeleteMapping(value = "/deleteEmpById")
-	public void deleteEmployee(@RequestBody Employee emp) {
+	public String deleteEmployee(@RequestBody Employee emp) {
 		 employeeService.deleteEmployee(emp);
+		return "Successfully Deleted";
 	}
 	
 	

@@ -20,22 +20,26 @@ public class EmployeeSkillController {
     }
 
     @PostMapping(value = "/createEmpSkill")
-    public void createEmployee(@RequestBody EmployeeSkill emp) {
+    public String createEmployee(@RequestBody EmployeeSkill emp) {
         employeeSkillService.insertEmployeeSkill(emp);
+        return "Successfully Inserted";
     }
 
     @PutMapping(value = "/updateEmpSkill")
-    public void updateEmployee(@RequestBody EmployeeSkill emp) {
+    public String updateEmployee(@RequestBody EmployeeSkill emp) {
         employeeSkillService.updateEmployeeSkill(emp);
+        return "Successfully Updated";
     }
 
     @PutMapping(value = "/executeUpdateEmpSkill")
-    public void executeUpdateEmployee(@RequestBody EmployeeSkill emp) {
+    public String executeUpdateEmployee(@RequestBody EmployeeSkill emp) {
         employeeSkillService.executeUpdateEmployeeSkill(emp);
+        return "Successfully Updated";
     }
 
     @DeleteMapping(value = "/deleteEmpSkillById")
-    public void deleteEmployee(@RequestBody EmployeeSkill emp) {
+    public String deleteEmployee(@RequestBody EmployeeSkill emp) {
         employeeSkillService.deleteEmployeeSkill(emp);
+        return "Successfully Deleted";
     }
 }

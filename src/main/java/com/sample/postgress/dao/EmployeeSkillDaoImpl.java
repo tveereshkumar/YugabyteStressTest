@@ -34,7 +34,7 @@ public class EmployeeSkillDaoImpl implements EmployeeSkillsDao {
     @Override
     public void insertEmployee(EmployeeSkill emp) {
         final String sql = "insert into employee_skill(employeeId, skillName , experience, description) values(:employeeId,:skillName,:experience,:description)";
-        if (emp == null)
+        if (emp == null || emp.getEmployeeId() == null)
             emp = MockData.getMockEmployeeSkill();
         KeyHolder holder = new GeneratedKeyHolder();
         SqlParameterSource param = new MapSqlParameterSource()
@@ -47,7 +47,7 @@ public class EmployeeSkillDaoImpl implements EmployeeSkillsDao {
 
     @Override
     public void updateEmployee(EmployeeSkill emp) {
-        if (emp == null)
+        if (emp == null || emp.getEmployeeId() == null)
             emp = MockData.getMockEmployeeSkill();
         final String sql = "update employee_skill set skillName=:skillName, experience=:experience, description=:description where employeeId=:employeeId";
         KeyHolder holder = new GeneratedKeyHolder();
@@ -61,7 +61,7 @@ public class EmployeeSkillDaoImpl implements EmployeeSkillsDao {
 
     @Override
     public void executeUpdateEmployee(EmployeeSkill emp) {
-        if (emp == null)
+        if (emp == null || emp.getEmployeeId() == null)
             emp = MockData.getMockEmployeeSkill();
         final String sql = "update employee_skill set skillName=:skillName, experience=:experience, description=:description where employeeId=:employeeId";
 
@@ -82,7 +82,7 @@ public class EmployeeSkillDaoImpl implements EmployeeSkillsDao {
 
     @Override
     public void deleteEmployee(EmployeeSkill emp) {
-        if (emp == null)
+        if (emp == null || emp.getEmployeeId() == null)
             emp = MockData.getMockEmployeeSkill();
         final String sql = "delete from employee_skill where employeeId=:employeeId";
 
