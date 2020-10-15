@@ -1,6 +1,5 @@
 package com.sample.postgress.controller;
 
-import com.sample.postgress.entity.Employee;
 import com.sample.postgress.entity.EmployeeSkill;
 import com.sample.postgress.service.EmployeeSkillService;
 import org.springframework.web.bind.annotation.*;

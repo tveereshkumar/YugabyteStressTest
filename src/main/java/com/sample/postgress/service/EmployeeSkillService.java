@@ -1,6 +1,5 @@
 package com.sample.postgress.service;
 
-import com.sample.postgress.entity.Employee;
 import com.sample.postgress.entity.EmployeeSkill;
 
 import java.util.List;
